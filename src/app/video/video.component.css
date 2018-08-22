@@ -1,0 +1,18 @@
+.video {
+  background: linear-gradient(to bottom right, #c2c2d2, #232343);
+  box-shadow: 7px 7px 3px #888888;
+  width: 320px;
+  float: left;
+  height: 360px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.video p:first-of-type {
+  font-weight: bold;
+}
+.video img {
+  max-height: 180px;
+  max-width: 300px;
+}

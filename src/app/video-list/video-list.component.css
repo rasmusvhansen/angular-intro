@@ -1,0 +1,14 @@
+.query {
+  border-radius: 4px;
+  box-shadow: 3px 3px 4px #888888;
+  background: linear-gradient(to bottom right, #f2f2f2, #ededed);
+  border: none;
+  padding: 10px;
+  margin: 10px 5px;
+  width: 320px;
+}
+
+input.query:focus {
+  border: none;
+  outline: none;
+}
