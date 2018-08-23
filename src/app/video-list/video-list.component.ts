@@ -16,13 +16,14 @@ export class VideoListComponent implements OnInit, OnDestroy {
   public query = new FormControl('');
 
   constructor(private youtubeService: YoutubeService, private route: ActivatedRoute, private router: Router) {
-    this.userSearchSubscription = this.query.valueChanges.subscribe(q => this.router.navigate(['videos', q]));
+    this.userSearchSubscription = this.query.valueChanges
+      .pipe(
+        debounceTime(500),
+        filter(q => q.length > 1)
+      )
+      .subscribe(q => this.router.navigate(['videos', q]));
     const routeSearch$ = this.route.paramMap.pipe(map(param => param.get('query')));
-    this.videos$ = routeSearch$.pipe(
-      filter(q => q.length > 1),
-      debounceTime(500),
-      switchMap(q => this.youtubeService.search(q))
-    );
+    this.videos$ = routeSearch$.pipe(switchMap(q => this.youtubeService.search(q)));
   }
 
   ngOnDestroy() {

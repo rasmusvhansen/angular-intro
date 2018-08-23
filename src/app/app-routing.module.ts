@@ -5,7 +5,7 @@ import { VideoListComponent } from './video-list/video-list.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'videos/angular',
+    redirectTo: 'videos/ambient',
     pathMatch: 'full'
   },
   {
