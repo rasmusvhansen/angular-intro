@@ -2,19 +2,4 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-
-  <div class="video-container"
-       *ngFor="let video of videos">
-    <a [href]="video.link">
-      <div class="video">
-        <div class="front">
-          <p class="title">{{video.title}}</p>
-          <img [src]="video.thumb"></div>
-        <div class="back">
-          <p>{{video.description}}</p>
-        </div>
-      </div>
-    </a>
-  </div>
-
 </div>
