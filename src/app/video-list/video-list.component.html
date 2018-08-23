@@ -1,9 +1,2 @@
-<div>
-  <input [formControl]="query"
-         placeholder="search"
-         type="search"
-         class="query">
-</div>
-
-<app-video *ngFor="let video of videos$ | async"
+<app-video *ngFor="let video of videos"
            [video]="video"></app-video>

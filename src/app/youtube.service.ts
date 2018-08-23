@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { YoutubeResult, Video } from './types';
 
 const baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&q=';
@@ -13,23 +11,23 @@ const apiKey = '&key=AIzaSyD4YJITOWdfQdFbcxHc6TgeCKmVS9yRuQ8';
 export class YoutubeService {
   constructor(private httpClient: HttpClient) {}
 
-  search(query: string): Observable<Array<Video>> {
-    const url = baseUrl + query + apiKey;
+  search(query: string): Array<Video> {
+    // const url = baseUrl + query + apiKey;
 
-    // Calls the YouTube API and transforms the result. Note that nothing happens until the Observable is subscribed to
-    return this.httpClient.get<YoutubeResult>(url).pipe(
-      // Maps the YoutubeResult coming from the YouTube API to an array of Videos
-      map(res => {
-        return res.items.map(v => {
-          const snip = v.snippet;
-          return {
-            title: snip.title,
-            description: snip.description,
-            thumb: snip.thumbnails.medium.url,
-            link: 'https://www.youtube.com/watch?v=' + v.id.videoId
-          };
-        });
-      })
-    );
+    return [
+      {
+        title: 'Angular in 60 Minutes',
+        description: 'Learn angular in 60 minutes',
+        thumb: 'https://i.ytimg.com/vi/KhzGSHNhnbI/mqdefault.jpg',
+        link: 'https://www.youtube.com/watch?v=KhzGSHNhnbI'
+      },
+      {
+        title: 'Angular vs React.js vs Vue.js - My Thoughts!',
+        description:
+          'Angular, React.js or Vue.js? I get this question a lot! Let me share some thoughts on it with you! Early bird offer - Join my course on this topic for only $10: ',
+        thumb: 'https://i.ytimg.com/vi/KMX1mFEmM3E/mqdefault.jpg',
+        link: 'https://www.youtube.com/watch?v=KMX1mFEmM3E'
+      }
+    ];
   }
 }
