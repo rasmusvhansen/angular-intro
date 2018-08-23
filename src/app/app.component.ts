@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Video } from './types';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular Intro';
 
-  videos = [
+  videos: Video[] = [
     {
       title: 'Angular in 60 Minutes',
       description: 'Learn angular in 60 minutes',
