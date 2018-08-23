@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .video {
   /* background: linear-gradient(to bottom right, #c2c2d2, #232343); */
   box-shadow: 7px 7px 3px #888888;
@@ -14,9 +18,7 @@
   max-width: 300px;
 }
 
-/* entire container, keeps perspective */
 .video-container {
-  perspective: 1000px;
   float: left;
   margin: 10px;
 }

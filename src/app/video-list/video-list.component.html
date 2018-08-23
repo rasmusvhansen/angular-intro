@@ -1,5 +1,10 @@
-<h2>Videos</h2>
 <div>
-  <input [formControl]="query" placeholder="search" type="search" class="query">
+  <input [formControl]="query"
+         placeholder="search"
+         type="search"
+         class="query">
 </div>
-<app-video *ngFor="let video of videos$ | async" [video]="video"></app-video>
+<div [@listAnimation]="videos">
+  <app-video *ngFor="let video of videos"
+             [video]="video"></app-video>
+</div>
