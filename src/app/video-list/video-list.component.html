@@ -4,7 +4,6 @@
          type="search"
          class="query">
 </div>
-<div [@listAnimation]="videos">
-  <app-video *ngFor="let video of videos"
-             [video]="video"></app-video>
-</div>
+
+<app-video *ngFor="let video of videos$ | async"
+           [video]="video"></app-video>

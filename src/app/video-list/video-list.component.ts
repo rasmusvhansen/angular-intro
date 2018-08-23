@@ -1,29 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { YoutubeService } from '../youtube.service';
-import { Observable, merge, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, map, debounceTime, filter, tap } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { Video } from '../types';
-import { trigger, state, transition, style, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-video-list',
   templateUrl: './video-list.component.html',
-  styleUrls: ['./video-list.component.css'],
-  animations: [
-    trigger('listAnimation', [
-      transition('* => *', [
-        query(':enter', style({ transform: 'translateX(-100%)' }), { optional: true }),
-        query(':enter', stagger('30ms', [animate('400ms', style({ transform: 'translateX(0)' }))]), { optional: true })
-      ])
-    ])
-  ]
+  styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnDestroy {
   private subscriptions = new Subscription();
   public videos$: Observable<Video[]>;
-  public videos: Video[];
 
   // Represents the search field in the html
   public query = new FormControl('');
@@ -44,8 +34,6 @@ export class VideoListComponent implements OnDestroy {
     // Maps the stream of queries to a stream of result from the YoutubeService and exposes it to the view
     // The async pipe in the view will take care of subscribe/unsubscribe
     this.videos$ = routeSearch$.pipe(switchMap(q => this.youtubeService.search(q)));
-
-    this.subscriptions.add(this.videos$.subscribe(v => (this.videos = v)));
   }
 
   ngOnDestroy() {
