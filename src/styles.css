@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333333;
+}
+
 * {
   box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2 {
+  margin-left: 10px;
 }

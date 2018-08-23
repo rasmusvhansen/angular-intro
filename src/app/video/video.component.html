@@ -1,5 +1,12 @@
-<div class="video">
-  <p>{{video.title}}</p>
-  <a [href]="video.link"><img [src]="video.thumb"></a>
-  <p>{{video.description}}</p>
+<div class="video-container">
+  <a [href]="video.link">
+    <div class="video">
+      <div class="front">
+        <p class="title">{{video.title}}</p>
+        <img [src]="video.thumb"></div>
+      <div class="back">
+        <p>{{video.description}}</p>
+      </div>
+    </div>
+  </a>
 </div>
