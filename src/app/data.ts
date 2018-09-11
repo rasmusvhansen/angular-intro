@@ -1,4 +1,4 @@
-this.videos = [
+const videos = [
   {
     title: 'Angular in 60 Minutes',
     description: 'Learn angular in 60 minutes',
