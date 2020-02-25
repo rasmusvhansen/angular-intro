@@ -2,12 +2,12 @@
   <a [href]="video.link">
     <div class="video">
       <div class="front">
-        <p class="title" appWordcount>{{ video.title }}</p>
+        <p class="title">{{ video.title }}</p>
         <img [src]="video.thumb" />
       </div>
 
       <div class="back">
-        <p appWordcount>{{ video.description | emphasize: query }}</p>
+        <p>{{ video.description | emphasize: query }}</p>
       </div>
     </div>
   </a>

@@ -9,10 +9,9 @@ import { VideoListComponent } from './video-list/video-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VideoComponent } from './video/video.component';
 import { EmphasizePipe } from './emphasize.pipe';
-import { WordcountDirective } from './wordcount.directive';
 
 @NgModule({
-  declarations: [AppComponent, VideoListComponent, VideoComponent, EmphasizePipe, WordcountDirective],
+  declarations: [AppComponent, VideoListComponent, VideoComponent, EmphasizePipe],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
