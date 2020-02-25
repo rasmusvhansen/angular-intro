@@ -1,10 +1,19 @@
-<div>
-  <input [formControl]="query"
-         placeholder="search"
-         type="search"
-         class="query">
+<form [formGroup]="formGroup">
+  <input formControlName="query" placeholder="search" type="search" class="query" />
+  Last:
+  <select formControlName="age">
+    <option value="">Select Age</option>
+    <option value="7">7 days</option>
+    <option value="30">1 month</option>
+    <option value="365">1 year</option>
+    <option value="3650">10 years</option>
+  </select>
+</form>
+<div *ngIf="formGroup.dirty">
+  <div *ngIf="formGroup.get('query').errors?.rickLidator" class="error">You have inricklidated the form. Please correct.</div>
+  <div *ngIf="formGroup.get('query').errors?.required" class="error">Search you must. Please correct</div>
+  <div *ngIf="formGroup.get('age').errors" class="error">Age matters. Please correct.</div>
 </div>
 <div [@listAnimation]="videos">
-  <app-video *ngFor="let video of videos"
-             [video]="video"></app-video>
+  <app-video *ngFor="let video of videos$ | async" [video]="video" [query]="(routeSearch$ | async).query"></app-video>
 </div>

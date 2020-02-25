@@ -9,4 +9,7 @@ import { Video } from '../types';
 export class VideoComponent {
   @Input()
   video: Video;
+
+  @Input()
+  query: string;
 }

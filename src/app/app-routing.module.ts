@@ -5,11 +5,16 @@ import { VideoListComponent } from './video-list/video-list.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'videos/ambient',
+    redirectTo: 'videos/ambient/30',
     pathMatch: 'full'
   },
   {
     path: 'videos/:query',
+    redirectTo: 'videos/:query/30',
+    pathMatch: 'full'
+  },
+  {
+    path: 'videos/:query/:age',
     component: VideoListComponent
   }
 ];

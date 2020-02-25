@@ -12,3 +12,22 @@ input.query:focus {
   border: none;
   outline: none;
 }
+
+select,
+option {
+  padding: 8px;
+  box-shadow: 3px 3px 4px #888888;
+}
+
+option {
+  height: 20px;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+}
