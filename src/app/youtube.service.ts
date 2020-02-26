@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { YoutubeResult, Video } from './types';
 
-const baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&q=';
-const apiKey = '&key=AIzaSyD4YJITOWdfQdFbcxHc6TgeCKmVS9yRuQ8';
+const API_KEY = 'paste your api key here, get a key at https://console.developers.google.com/apis/api/youtube.googleapis.com';
+const baseUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&key=${API_KEY}&q=`;
 
 @Injectable({
   providedIn: 'root'
