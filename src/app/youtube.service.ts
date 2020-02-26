@@ -4,8 +4,8 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { YoutubeResult, Video } from './types';
 
-const baseUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&type=video&q=';
-const apiKey = '&key=AIzaSyD4YJITOWdfQdFbcxHc6TgeCKmVS9yRuQ8';
+const API_KEY = 'paste your api key here, get a key at https://console.developers.google.com/apis/api/youtube.googleapis.com';
+const baseUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&key=${API_KEY}&q=`;
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class YoutubeService {
   constructor(private httpClient: HttpClient) {}
 
   search(query: string): Observable<Array<Video>> {
-    const url = baseUrl + query + apiKey;
+    const url = baseUrl + query;
 
     // Calls the YouTube API and transforms the result. Note that nothing happens until the Observable is subscribed to
     return this.httpClient.get<YoutubeResult>(url).pipe(
