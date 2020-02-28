@@ -47,6 +47,7 @@ export class VideoListComponent implements OnDestroy {
     // Filters the stream of user input so it emits a value every 500ms max, and no values shorter than 2 chars
     const filteredUserSearch$ = this.formGroup.valueChanges.pipe(
       debounceTime(500),
+      tap(g => console.log('GROOUP', g)),
       filter(group => group.query.length > 1)
     );
 
