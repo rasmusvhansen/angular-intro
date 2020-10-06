@@ -1,4 +1,4 @@
-# Angular Intro Course
+# Angular Intro Course - [tiny.cc/db-angular](http://tiny.cc/db-angular)
 
 Run the following commands to get started:
 
